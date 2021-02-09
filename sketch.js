@@ -22,7 +22,7 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(600, 200);
+  createCanvas(displayWidth-40,displayHeight/2);
   
   PLAY=1;
   END=0;
@@ -103,7 +103,7 @@ function spawnClouds(){
 if(World.frameCount%70===0){
   
   //creating clouds
-  var clouds=createSprite(400,Math.round(random(25,75)),1,1);
+  var clouds=createSprite(displayWidth,Math.round(random(25,75)),1,1);
   clouds.addImage(cloud_image);
   clouds.velocityX=-3;
   
@@ -112,7 +112,7 @@ if(World.frameCount%70===0){
   trex.depth=trex.depth+1
   
   //adding lifetime to clouds
-  clouds.lifetime=200;
+  clouds.lifetime=displayWidth/3;
   
   //adding the group of clouds
   cloudsGroup.add(clouds);
@@ -124,7 +124,7 @@ function spawnObstacles (){
  if(World.frameCount%60===0){
    
  //creating the obstacles
- var Obstacles=createSprite(400,160)
+ var Obstacles=createSprite(displayWidth,160)
  var rand=Math.round(random(1,6));
  
    switch(rand){
@@ -163,7 +163,7 @@ function spawnObstacles (){
    Obstacles.velocityX=-4;
    
    //giving lifetime to obstacles
-   Obstacles.lifetime=150;
+   Obstacles.lifetime=displayWidth/4;
    
    //adding the group of obstacles
    ObstacleGroup.add(Obstacles);
